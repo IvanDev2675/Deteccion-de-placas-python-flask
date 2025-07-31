@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Guardia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<h1 class="AUTODETEC">AUTODETEC - Registrar Guardia</h1>
+
+<div class="login-container">
+    <div class="login-box">
+        <h2>Registrar nuevo guardia</h2>
+        <form action="{{ url_for('registrar_guardia') }}" method="POST">
+            <label for="username"><h3>Nombre de Usuario:</h3></label>
+            <input type="text" name="username" id="username" placeholder="Nombre de usuario" required>
+
+            <label for="apellido"><h3>Apellido:</h3></label>
+            <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
+
+            <label for="placa"><h3>Placa:</h3></label>
+            <input type="text" name="placa" id="placa" placeholder="Placa del vehículo" required>
+
+            <label for="password"><h3>Contraseña:</h3></label>
+            <input type="password" name="password" id="password" placeholder="Contraseña" required>
+
+            <label for="clave"><h3>Clave de autorización:</h3></label>
+            <input type="password" name="clave" id="clave" placeholder="Clave de autorización" required>
+
+            <button type="submit">Registrar Guardia</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+

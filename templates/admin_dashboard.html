@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Administrador</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{{ url_for('static', filename='css/imagenes/1.png') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for Admin Panel */
+        .admin-container {
+            background-color: rgb(138, 159, 30);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1.AUTODETEC {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* Admin Box Styles */
+        .admin-box {
+            background-color: #eaeaea;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .admin-box h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .admin-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .action-box {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .action-box h3 {
+            font-size: 18px;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .action-box p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: rgb(138, 159, 30);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 600px) {
+            .admin-container {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <img src="{{ url_for('static', filename='css/imagenes/indice-1.png') }}" alt="Logo UdeC" class="logo">
+        <h1 class="AUTODETEC">AUTODETEC - Panel de Administrador</h1>
+      
+        <div class="admin-box">
+            <h2>Panel de Control</h2>
+            
+            <div class="admin-actions">
+                <!-- Registrar Vehículo -->
+                <div class="action-box">
+                    <h3>Registrar Vehículo</h3>
+                    <p>Agregar un nuevo vehículo al sistema.</p>
+                    <button onclick="window.location.href='{{ url_for('agregar_vehiculo') }}'">Ir a Registrar Vehículo</button>
+                </div>
+
+                <!-- Ver Placas Registradas -->
+                <div class="action-box">
+                    <h3>Ver Placas Registradas</h3>
+                    <p>Consultar el listado de placas registradas en el sistema.</p>
+                    <button onclick="window.location.href='{{ url_for('ver_placas') }}'">Ir a Ver Placas</button>
+                </div>
+
+                <!-- Cerrar Sesión -->
+                <div class="action-box">
+                    <h3>Cerrar Sesión</h3>
+                    <p>Finalizar la sesión del administrador.</p>
+                    <button onclick="window.location.href='{{ url_for('logout') }}'">Cerrar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

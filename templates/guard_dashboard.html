@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Guarda</title>
+
+    <!-- Estilos CSS integrados -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("{{ url_for('static', filename='css/imagenes/1.png') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .guard-container {
+            background-color: rgb(138, 159, 30);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1.AUTODETEC {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .guard-box {
+            background-color: #eaeaea;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .guard-box h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .guard-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .action-box {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .action-box h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .action-box p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        button {
+            background-color:  rgb(138, 159, 30);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 600px) {
+            .guard-container {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+
+        .flashes {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .flashes li {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="guard-container">
+        <h1>Bienvenido, {{ current_user.username }}</h1>
+        
+        <!-- Formulario para subir la imagen de la placa -->
+        <form action="{{ url_for('subir_imagen') }}" method="POST" enctype="multipart/form-data">
+            <label for="image">Subir imagen de la placa:</label>
+            <input type="file" name="image" id="image" required>
+            <button type="submit">Verificar Placa</button>
+        </form>
+
+        <!-- Mostrar la placa detectada si existe -->
+        {% if placa_detectada %}
+            <h2>Placa detectada: {{ placa_detectada }}</h2>
+        {% else %}
+            <h2>No se ha detectado ninguna placa.</h2>
+        {% endif %}
+
+        <!-- Mostrar el mensaje si hay éxito o error -->
+        {% if mensaje %}
+            <h2>{{ mensaje }}</h2>
+        {% endif %}
+
+        <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+
+        <!-- Mostrar los mensajes flash -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

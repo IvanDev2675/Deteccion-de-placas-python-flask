@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Ver Placas Registradas</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{{ url_for('static', filename='css/imagenes/image2.jpg') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for Registered Plates */
+        .container {
+            background-color: rgba(138, 159, 30, 0.9); /* Slight transparency */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+            color: #fff;
+        }
+
+        th {
+            background-color: rgba(105, 128, 12, 0.9);
+            font-weight: bold;
+        }
+
+        td {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        a {
+            display: block;
+            color: #fff;
+            text-decoration: underline;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* Eliminar botón */
+        .btn-eliminar {
+            color: white;
+            background-color: red;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .btn-eliminar:hover {
+            background-color: darkred;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Placas Registradas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Número de Placa</th>
+                    <th>Nombre del Propietario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vehiculo in vehiculos %}
+                <tr>
+                    <td>{{ vehiculo.placa }}</td>
+                    <td>{{ vehiculo.nombre_duenio }}</td>
+                    <td>
+                        <a href="{{ url_for('eliminar_vehiculo', id=vehiculo.id) }}" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar este vehículo?');">Eliminar</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="3">No hay placas registradas.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('admin_dashboard') }}">Regresar al Panel del Administrador</a>
+    </div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión </title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('static/css/imagenes/PICOTA.jpg') no-repeat center center fixed; /* Imagen de fondo */
+            background-size: cover;
+            height: 100vh; /* Para que ocupe toda la altura de la pantalla */
+            overflow: hidden; /* Para evitar el scroll */
+        }
+
+        h1 {
+            color: #fff;
+            text-align: left;
+            margin-top: 20px;
+            margin-left: 300px; /* Para evitar que se cruce con el logo */
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        /* Posición del logo */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 200px; /* Tamaño del logo */
+        }
+
+        /* Contenedor del login para centrar el formulario */
+        .login-container {
+            display: flex;
+            justify-content: flex-end; /* Alinea el formulario a la derecha */
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Caja del login */
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+            padding: 38px;
+            border-radius: 20px;
+            width: 350px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* Estilo de título */
+        .login-box h2 {
+            margin-bottom: 20px;
+            color: #2f3e62;
+        }
+
+        /* Campos del formulario */
+        .login-box label {
+            display: block;
+            text-align: left;
+            color: #333;
+            margin-bottom: 1px;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Botón de Login */
+        .login-box button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-box button:hover {
+            background-color: #45a049;
+        }
+
+        .admin {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .admin a {
+            color: #0077ff;
+            text-decoration: none;
+        }
+
+        .admin a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <img src="static/css/imagenes/image.png" alt="Logo" class="logo"> <!-- Logo en la parte superior izquierda -->
+    <h1 class="AUTODETEC">AUTODETEC</h1> <!-- Título del proyecto -->
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2>INICIO DE SESIÓN</h2>
+            <h2>bY DRAGONEANTE EDWIN</h2>
+            <form action="{{ url_for('login') }}" method="POST">
+                <label for="username"><h3>Usuario:</h3></label>
+                <input type="text" name="username" id="username" placeholder="Nombre de usuario" required>
+                <label for="password"><h3>Contraseña:</h3></label>
+                <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                <div class="admin">
+                    <label for="admin">¿Administrador? </label> 
+                    <a href="registrar_clave">Registrar guarda de seguridad</a>
+                </div>
+                <button type="submit">LOGIN</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

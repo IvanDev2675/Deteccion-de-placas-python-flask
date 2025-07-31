@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Vehículo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{{ url_for('static', filename='css/imagenes/image2.jpg') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for Vehicle Registration */
+        .container {
+            background-color: rgba(138, 159, 30, 0.9); /* Slight transparency for better readability */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+
+        .container h1 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #8a9f1e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #6b7f12;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #fff;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Agregar Vehículo</h1>
+        <form action="{{ url_for('agregar_vehiculo') }}" method="POST">
+            <input type="text" name="placa" placeholder="Número de Placa" required>
+            <input type="text" name="nombre_duenio" placeholder="Nombre del Dueño" required>
+            <input type="number" name="edad" placeholder="Edad del Dueño" required>
+            <input type="text" name="telefono" placeholder="Teléfono del Dueño" required>
+            <button type="submit">Registrar Vehículo</button>
+        </form>
+        <a href="{{ url_for('admin_dashboard') }}">Regresar al Panel del Administrador</a>
+    </div>
+</body>
+</html>
+
+
