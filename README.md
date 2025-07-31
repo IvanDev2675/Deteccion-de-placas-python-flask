@@ -1,5 +1,5 @@
 # Deteccion-de-placas-python-flask
-
+Para el cual puede ver la carpeta Docs donde encontrara un pdf con la explicación del proyecto.
 # 🚗 Sistema de Detección de Placas Vehiculares
 
 ## 📌 Descripción
