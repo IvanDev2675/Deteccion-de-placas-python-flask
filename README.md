@@ -1,5 +1,10 @@
 # Deteccion-de-placas-python-flask
 Para el cual puede ver la carpeta Docs donde encontrara un pdf con la explicación del proyecto.
+
+//////////////  https://youtu.be/bYtlotnUKBo  ///////////////   Link de video de funcionamiento del MVP Autodetec
+
+
+
 # 🚗 Sistema de Detección de Placas Vehiculares
 
 ## 📌 Descripción
