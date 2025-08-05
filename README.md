@@ -1,5 +1,5 @@
 # Deteccion-de-placas-python-flask
-Para el cual puede ver la carpeta Docs donde encontrara un pdf con la explicación del proyecto.
+Para el cual puede ver la carpeta Docs donde encontrara un pdf con el levantamiento de requerimientos del software e imagenes de las interfaces y los funcionamientos. 
 
 //////////////  https://youtu.be/bYtlotnUKBo  ///////////////   Link de video de funcionamiento del MVP Autodetec
 
